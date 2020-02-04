@@ -45,4 +45,48 @@ RSpec.describe Pressure_group do
         expect(subject.determine_group(14, 75)).to eq("U")
       end
     end
+
+    context "at depth 16m" do
+      it "with 19 minutes should return with Category D" do
+        expect(subject.determine_group(16, 19)).to eq("D")
+      end
+
+      it "with 34 minutes should return with Category K" do
+        expect(subject.determine_group(16, 34)).to eq("K")
+      end
+
+      it "with 36 minutes should return with Category L" do
+        expect(subject.determine_group(16, 36)).to eq("L")
+      end
+
+      it "with 50 minutes should return with Category Q" do
+        expect(subject.determine_group(16, 50)).to eq("Q")
+      end
+
+      it "with 71 minutes should return with Category X" do
+        expect(subject.determine_group(16, 71)).to eq("X")
+      end
+    end
+
+    context "at depth 18m" do
+      it "with 19 minutes should return with Category F" do
+        expect(subject.determine_group(18, 19)).to eq("F")
+      end
+
+      it "with 34 minutes should return with Category M" do
+        expect(subject.determine_group(18, 34)).to eq("M")
+      end
+
+      it "with 36 minutes should return with Category N" do
+        expect(subject.determine_group(18, 36)).to eq("N")
+      end
+
+      it "with 50 minutes should return with Category T" do
+        expect(subject.determine_group(18, 50)).to eq("T")
+      end
+
+      it "with 56 minutes should return with Category W" do
+        expect(subject.determine_group(18, 56)).to eq("W")
+      end
+    end
   end
