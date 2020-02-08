@@ -2,7 +2,7 @@ require "pressure_group_table"
 
 class Pressure_group
   include Tables
-  def determine_group(depth, minutes)
+  def determine_group(depth:, minutes:)
     @initial_pressure_groups.each { |key,value|
       if key.to_s == "depth#{depth}"
         value.each { |key,value|
