@@ -10,7 +10,7 @@ RSpec.describe Pressure_group do
   end
   context "initial pressure group is A" do
     it "return A when surface interval is 120" do
-      expect(second_pressure_group(initial_pressure_group:"A", minutes: 120)).to eq("G")
+      expect(second_pressure_group(initial_pressure_group:"A", minutes: 120)).to eq("A")
     end
   end
   context "initial pressure group is G" do
