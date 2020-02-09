@@ -3,11 +3,11 @@ require "pressure_group"
 RSpec.describe Pressure_group do
 
   def determine_group(depth:, minutes:)
-    subject.determine_group({depth: depth, minutes: minutes})
+    subject.determine_first_pressure_group({depth: depth, minutes: minutes})
   end
 
   it "has a determine_group method accepting 2 arguments" do
-    expect(subject).to respond_to.with_keywords(:depth, :minutes)
+    expect(subject).to respond_to(:determine_first_pressure_group).with_keywords(:depth, :minutes), "Make sure 2 keyword arguments, depth and minutes, are being passed to determine_first_pressure_group"
   end
 
   context "at depth 10m" do
@@ -278,4 +278,25 @@ RSpec.describe Pressure_group do
       expect(determine_group({depth: 42, minutes:9})).not_to eq("E")
     end
   end
+  end
+
+  RSpec.describe Pressure_group do
+    def second_pressure_group(initial_pressure_group:, minutes:)
+      subject.determine_second_pressure_group({initial_pressure_group: initial_pressure_group, minutes: minutes})
+    end
+
+    it "has determine second pressure group method accepting two arguments" do
+      expect(subject).to respond_to(:determine_second_pressure_group).with_keywords(:initial_pressure_group, :minutes), "determine_second_pressure_group method needs to pass two keyword arguments"
+    end
+
+    context "initial pressure group is L" do
+      it "return H when surface interval is 24 minutes" do
+        expect(second_pressure_group(initial_pressure_group: "L", minutes: 24)).to eq("H") 
+      end
+    end
+    context "initial pressure group is P" do
+      it "return G when surface interval is 46" do
+        expect(second_pressure_group(initial_pressure_group:"P", minutes: 46)).to eq("G")
+      end
+    end
   end

@@ -15,5 +15,9 @@ module Tables
         depth40: {B: (1..5).to_a, C: [6], E: [7], F: [8], G: [9]},
         depth42: {B: (1..4).to_a, D: (5..6).to_a, E: [7], F: [8]}
       }
+      @second_pressure_group = {
+        L: {H: (22..27).to_a, I: (28..34).to_a}, 
+        P: {G: (46..51).to_a, H: (52..59).to_a}
+      }
     end
 end
