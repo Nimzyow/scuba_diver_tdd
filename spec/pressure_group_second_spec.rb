@@ -33,6 +33,16 @@ RSpec.describe Pressure_group do
       expect(second_pressure_group(initial_pressure_group:"P", minutes: 46)).to eq("G")
     end
   end
+  context "initial pressure group is R" do
+    it "return H when surface interval is 48" do
+      expect(second_pressure_group(initial_pressure_group:"R", minutes: 48)).to eq("H")
+    end
+  end
+  context "initial pressure group is S" do
+    it "returns O when surface interval is" do
+      expect(second_pressure_group(initial_pressure_group:"S", minutes: 18)).to eq("O")
+    end
+  end
   context "initial pressure group is U" do
     it "return D when surface interval is 46" do
       expect(second_pressure_group(initial_pressure_group:"U", minutes: 129)).to eq("D")
